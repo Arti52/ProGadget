@@ -1,45 +1,104 @@
-ProGadget:-
+# ProGadget eCommerce Application
+<img src="./frontend/public/images/sample2.jpg">
 
 ProGadget is a cutting-edge e-commerce platform designed to  online shopping experience for gadgets and electronic products. By leveraging the latest web technologies, ProGadget offers a seamless, user-friendly, and efficient interface for browsing, purchasing, and managing  electronic gadgets. The application is built using React for the front-end, Redux Toolkit for state management, Express for the backend, and MongoDB for the database.
 
-*********************************
-Key Features:-
+- [Features](#features)
+- [Usage](#usage)
+  - [Env Variables](#env-variables)
+  - [Install Dependencies (frontend & backend)](#install-dependencies-frontend--backend)
+  - [Run](#run)
+- [Build & Deploy](#build--deploy)
+  - [Seed Database](#seed-database)
 
-User Authentication and Authorization:- Secure user login and registration with role-based access control to manage customer, admin, and vendor functionalities.
+<!-- tocstop -->
 
-Product Catalog:- Comprehensive catalog of gadgets with detailed information, high-quality images, and customer reviews.
+## Features
 
-Shopping Cart and Checkout:- Easy-to-use shopping cart functionality with secure and efficient checkout processes.
+- Full featured shopping cart
+- Product reviews and ratings
+- Top products carousel
+- Product pagination
+- Product search feature
+- User profile with orders
+- Admin product management
+- Admin user management
+- Admin Order details page
+- Mark orders as delivered option
+- Checkout process (shipping, payment method, etc)
+- PayPal / credit card integration
+- Database seeder (products & users)
 
-Responsive Design:-Fully responsive layout ensuring an optimal shopping experience on desktops, tablets, and mobile devices.
+## Usage
 
-*********************************
-Technology Stack:-
+- Create a MongoDB database and obtain your `MongoDB URI` - [MongoDB Atlas](https://www.mongodb.com/cloud/atlas/register)
+- Create a PayPal account and obtain your `Client ID` - [PayPal Developer](https://developer.paypal.com/)
 
-React: Utilized for building the interactive and dynamic user interface with a component-based architecture.
+### Env Variables
 
-Redux Toolkit: Employed for managing application state, ensuring efficient data flow and state management across the app.
+Rename the `.env.example` file to `.env` and add the following
 
-Express: Used to create a robust backend API, handling server-side logic, routing, and integration with the database.
+```
+NODE_ENV = development
+PORT = 5000
+MONGO_URI = your mongodb uri
+JWT_SECRET = 'abc123'
+PAYPAL_CLIENT_ID = your paypal client id
+PAGINATION_LIMIT = 8
+```
 
-MongoDB: Selected as the database for its flexibility and scalability, facilitating efficient storage and retrieval of product and user data.
+Change the JWT_SECRET and PAGINATION_LIMIT to what you want
 
-********************************
-Project Architecture:-
+### Install Dependencies (frontend & backend)
 
-Front-End:-
+```
+npm install
+cd frontend
+npm install
+```
 
-Developed using React, incorporating modern hooks and functional components for a dynamic shopping experience.
-State managed with Redux Toolkit, providing predictable and maintainable state management.
-Styled-components or CSS modules used for maintaining modular and scalable styling.
+### Run
 
-Back-End:-
+```
 
-Built with Express, offering a RESTful API to handle all server-side operations, including product management, user authentication, and order processing.
-JWT (JSON Web Tokens) used for secure and stateless user authentication.
-Comprehensive validation and error handling ensure robust and reliable API responses.
+# Run frontend (:3000) & backend (:5000)
+npm run dev
 
-Database:-
+# Run backend only
+npm run server
+```
 
-MongoDB serves as the database, chosen for its flexible schema-less nature, which is ideal for handling diverse product and user data.
-Mongoose used as the ODM (Object Data Modeling) library to facilitate interaction with MongoDB.
+## Build & Deploy
+
+```
+# Create frontend prod build
+cd frontend
+npm run build
+```
+
+### Seed Database
+
+You can use the following commands to seed the database with some sample users and products as well as destroy all data
+
+```
+# Import data
+npm run data:import
+
+# Destroy data
+npm run data:destroy
+```
+
+```
+Sample User Logins
+
+admin@email.com (Admin)
+123456
+
+arti@email.com (Customer)
+123456
+
+aaru@email.com (Customer)
+123456
+```
+
+---
