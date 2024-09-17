@@ -94,7 +94,7 @@ Sample User Logins
 admin@email.com (Admin)
 123456
 
-arti@email.com (Customer)
+prashant@email.com (Customer)
 123456
 
 aaru@email.com (Customer)
